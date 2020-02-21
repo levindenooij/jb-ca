@@ -1,20 +1,20 @@
 {
 	"workflowApiVersion" : "1.1",
 	"metaData" : {
-		"icon": "images/icon.png",
+	"icon": "images/icon.png",
     	"iconSmall": "images/icon-small.png",
-    	"category": "flow"
+    	"category": "{{CATEGORY}}"
 	},
-	"type": "RestDecision",
+	"type": "REST",
     "lang": {
         "en-US": {
-            "name": "RTLXL Viewbehavior",
-            "description": "Tracks if subscriber watched an episode in the last x days"
+            "name": "{{ACTIVITY_NAME}}",
+            "description": "{{ACTIVITY_DESCRIPTION}}"
         }
     },
     "arguments" : {
     	"execute": {
-            "url": "https://pages.s4.exacttarget.com/page.aspx?QS=38dfbe491fab00eaf49242d968db6dc4cda0fc608a3d5a1cd1935b0d6fa3d04b",
+            "url": "{{EXECUTE_ENDPOINT_URL}}",
             "method": "POST",
             "inArguments": [],
             "body" : "{\"Min\":1,\"Max\":2}",
@@ -22,15 +22,15 @@
         }
     },
     "configurationArguments" : {
-    	"applicationExtensionKey" : "levin-rtlxl",
+    	"applicationExtensionKey" : "{{KEY}}",
         "save": {
-            "url": "https://demoengineering.herokuapp.com/save/"
+            "url": "https://{{ENDPOINT_NAME}}.herokuapp.com/save/"
         },
         "publish": {
-            "url": "https://demoengineering.herokuapp.com/publish/"
+            "url": "https://{{ENDPOINT_NAME}}.herokuapp.com/publish/"
         },
         "validate": {
-            "url": "https://demoengineering.herokuapp.com/validate/"
+            "url": "https://{{ENDPOINT_NAME}}.herokuapp.com/validate/"
         }
     },
     "userInterfaces": {

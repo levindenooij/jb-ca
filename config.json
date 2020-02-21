@@ -1,0 +1,60 @@
+{
+	"workflowApiVersion" : "1.1",
+	"metaData" : {
+		"icon": "images/icon.png",
+    	"iconSmall": "images/icon-small.png",
+    	"category": "flow"
+	},
+	"type": "RestDecision",
+    "lang": {
+        "en-US": {
+            "name": "RTLXL Viewbehavior",
+            "description": "Tracks if subscriber watched an episode in the last x days"
+        }
+    },
+    "arguments" : {
+    	"execute": {
+            "url": "https://pages.s4.exacttarget.com/page.aspx?QS=38dfbe491fab00eaf49242d968db6dc4cda0fc608a3d5a1cd1935b0d6fa3d04b",
+            "method": "POST",
+            "inArguments": [],
+            "body" : "{\"Min\":1,\"Max\":2}",
+            "timeout": 30000
+        }
+    },
+    "configurationArguments" : {
+    	"applicationExtensionKey" : "levin-rtlxl",
+        "save": {
+            "url": "https://demoengineering.herokuapp.com/save/"
+        },
+        "publish": {
+            "url": "https://demoengineering.herokuapp.com/publish/"
+        },
+        "validate": {
+            "url": "https://demoengineering.herokuapp.com/validate/"
+        }
+    },
+    "userInterfaces": {
+    	"configModal" : {
+            "height": 400,
+            "width": 500
+    	}
+    },
+    "outcomes": [
+	    {
+            "arguments": {
+                "branchResult": "1"
+            },
+            "metaData": {
+                "label": "Watched episode"
+            }
+        },
+        {
+            "arguments": {
+                "branchResult": "2"
+            },
+            "metaData": {
+                "label": "Did not watch episode"
+            }
+        }
+	]
+}
